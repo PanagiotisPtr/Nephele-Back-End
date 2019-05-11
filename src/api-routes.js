@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   });
 });
 
-const userController = require('./userController');
+const userController = require('./Controllers/userController');
 
 router.route('/users')
   .get(userController.index)
