@@ -3,7 +3,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 
-const apiRoutes = require('./api-routes');
+const userRouter = require('./Routers/UserRouter');
+const creatorRouter = require('./Routers/CreatorRouter');
 
 // use cors
 app.use(cors());
@@ -18,7 +19,15 @@ mongoose.connection.once('open', _ => {
   app.emit('ready');
 });
 
-app.use('/', apiRoutes);
+app.get('/', (req, res) => {
+  res.json({
+     status: 'API is working',
+     message: 'Welcome to the Nephele API'
+  });
+});
+
+app.use('/users', userRouter);
+app.use('/creators', creatorRouter);
 
 app.on('ready', _ => { 
   app.listen(4000, _ => {

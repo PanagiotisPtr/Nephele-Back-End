@@ -8,7 +8,16 @@ const creatorSchema = mongoose.Schema({
   subscribers: {
     type: Number,
     required: true,
-    default: 0
+    default: 0,
+    validate : {
+      validator : Number.isInteger,
+      message   : '{VALUE} is not an integer value'
+    }
+  },
+  user: {
+    type: String,
+    required: true,
+    unique: true
   }
 });
 
