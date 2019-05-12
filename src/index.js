@@ -5,6 +5,7 @@ const app = express();
 
 const userRouter = require('./Routers/UserRouter');
 const creatorRouter = require('./Routers/CreatorRouter');
+const videoRouter = require('./Routers/VideoRouter');
 
 // use cors
 app.use(cors());
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 
 app.use('/users', userRouter);
 app.use('/creators', creatorRouter);
+app.use('/videos', videoRouter);
 
 app.on('ready', _ => { 
   app.listen(4000, _ => {

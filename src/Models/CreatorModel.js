@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const creatorSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   subscribers: {
     type: Number,
