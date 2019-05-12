@@ -45,7 +45,7 @@ class DefaultController {
   update(req, res) {
     this.model.findById(req.params.id, (err, instance) => {
       if(err) return this.errorHandler.res_error(res, err);
-      makeChange(instance, req.body);
+      this.makeChange(instance, req.body);
       instance.save(err => {
         if(err) return this.errorHandler.res_error(res, err);
         res.json({
