@@ -13,4 +13,7 @@ router.route('/:id')
   .put((req, res) => videoController.update(req, res))
   .delete((req, res) => videoController.delete(req, res));
 
+router.route('/latest/:lim')
+  .get((req, res) => videoController.getLatest(req, res));
+
 module.exports = router;
