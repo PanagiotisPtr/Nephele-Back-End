@@ -55,7 +55,7 @@ class DefaultController {
       });
     });
   }
-
+  
   delete(req, res) {
     this.model.remove({_id: req.params.id}, (err, _) => {
       if(err) return this.errorHandler.res_error(res, err);

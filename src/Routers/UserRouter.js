@@ -13,4 +13,7 @@ router.route('/:id')
   .put((req, res) => userController.update(req, res))
   .delete((req, res) => userController.delete(req, res));
 
+router.route('/validate/:email/:password')
+      .get((req, res) => userController.search(req, res));
+
 module.exports = router;
